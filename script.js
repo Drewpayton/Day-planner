@@ -1,3 +1,20 @@
+var nineText = document.getElementById("9")
+var tenText = document.getElementById("10")
+var elevenText = document.getElementById("11")
+var twelveText = document.getElementById("12")
+var thirteenText = document.getElementById("13")
+var fourteenText = document.getElementById("14")
+var fifteenText = document.getElementById("15")
+var sixteenText = document.getElementById("16")
+var seventeenText = document.getElementById("17")
+var saveBtn = document.querySelector(".saveBtn")
+var clearBtn = document.querySelector(".custom-clear")
+
+
+
+
+
+
 var rows = document.getElementsByClassName("custom-row");
 var currentHour = parseInt(moment().format('H'));
 console.log(currentHour)
@@ -21,15 +38,63 @@ var fifteen = localStorage.getItem("fifteenTime");
 var sixteen = localStorage.getItem("sixteenTime");
 var seventeen = localStorage.getItem("seventeenTime");
 
-if (nine === null) {
-  console.log("this is null")
-}else {
-  console.log("this is active")
-}
+nineText.textContent = nine;
+tenText.textContent = ten;
+elevenText.textContent = eleven;
+twelveText.textContent = twelve;
+thirteenText.textContent = thirteen;
+fourteenText.textContent = fourteen;
+fifteenText.textContent = fifteen;
+sixteenText.textContent = sixteen;
+seventeenText.textContent = seventeen;
 
 };
 
 
+
+saveBtn.addEventListener("click", function(){
+
+    var nine = nineText.value;
+    var ten = tenText.value;
+    var eleven = elevenText.value;
+    var twelve = twelveText.value;
+    var thirteen = thirteenText.value;
+    var fourteen = fourteenText.value;
+    var fifteen = fifteenText.value;
+    var sixteen = sixteenText.value;
+    var seventeen = seventeenText.value;
+
+
+localStorage.setItem("nineTime", nine);
+localStorage.setItem("tenTime", ten);
+localStorage.setItem("elevenTime", eleven);
+localStorage.setItem("twelveTime", twelve);
+localStorage.setItem("thirteenTime", thirteen);
+localStorage.setItem("fourteenTime", fourteen);
+localStorage.setItem("fifteenTime", fifteen);
+localStorage.setItem("sixteenTime", sixteen);
+localStorage.setItem("seventeenTime", seventeen);
+
+
+})
+
+function clearData() {
+    localStorage.clear()
+
+    nineText.textContent = "";
+    tenText.textContent = "";
+    elevenText.textContent = "";
+    twelveText.textContent = "";
+    thirteenText.textContent = "";
+    fourteenText.textContent = "";
+    fifteenText.textContent = "";
+    sixteenText.textContent = "";
+    seventeenText.textContent = "";
+}
+
+clearBtn.addEventListener("click", function() {
+    clearData();
+})
 
 Array.from(rows).forEach(row => {
   var boxId = row.id;
