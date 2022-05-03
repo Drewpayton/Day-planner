@@ -1,20 +1,20 @@
-const rows = document.getElementsByClassName("custom-row");
-let currentHour = parseInt(moment().format('H'));
+var rows = document.getElementsByClassName("custom-row");
+var currentHour = parseInt(moment().format('H'));
 
 Array.from(rows).forEach(row => {
-  let
-    rowIdString = row.id,
-    rowHour;
-  if (rowIdString) {
-    rowHour = parseInt(rowIdString);
+  var boxId = row.id;
+  var boxHour;
+  
+  if (boxId) {
+    boxHour = parseInt(boxId);
   }
-  if (rowHour) {
+  if (boxHour) {
     // Compares row id to current hour and sets color accordingly
-    if (currentHour === rowHour) {
+    if (currentHour === boxHour) {
       setColor(row, "red");
-    } else if ((currentHour < rowHour) && (currentHour > rowHour - 6)) {
-      setColor(row, "green");
-    } else if ((currentHour > rowHour) && (currentHour < rowHour + 6)) {
+    } else if ((currentHour < boxHour)) {
+      setColor(row, "#8A9A5B");
+    } else if ((currentHour > boxHour)) {
       setColor(row, "lightgrey");
     } else {
       setColor(row, "white");
