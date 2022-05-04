@@ -1,14 +1,16 @@
-var nineText = document.getElementById("9")
-var tenText = document.getElementById("10")
-var elevenText = document.getElementById("11")
-var twelveText = document.getElementById("12")
-var thirteenText = document.getElementById("13")
-var fourteenText = document.getElementById("14")
-var fifteenText = document.getElementById("15")
-var sixteenText = document.getElementById("16")
-var seventeenText = document.getElementById("17")
-var saveBtn = document.querySelector(".saveBtn")
-var clearBtn = document.querySelector(".custom-clear")
+var nineText = document.getElementById("9");
+var tenText = document.getElementById("10");
+var elevenText = document.getElementById("11");
+var twelveText = document.getElementById("12");
+var thirteenText = document.getElementById("13");
+var fourteenText = document.getElementById("14");
+var fifteenText = document.getElementById("15");
+var sixteenText = document.getElementById("16");
+var seventeenText = document.getElementById("17");
+var saveBtn = document.querySelector(".saveBtn");
+var clearBtn = document.querySelector(".custom-clear");
+var saveBtnAll = document.querySelectorAll(".saveBtn");
+
 
 
 
@@ -17,7 +19,7 @@ var clearBtn = document.querySelector(".custom-clear")
 
 var rows = document.getElementsByClassName("custom-row");
 var currentHour = parseInt(moment().format('H'));
-console.log(currentHour)
+console.log(currentHour);
 
 saveData();
 
@@ -47,12 +49,10 @@ fourteenText.textContent = fourteen;
 fifteenText.textContent = fifteen;
 sixteenText.textContent = sixteen;
 seventeenText.textContent = seventeen;
-
 };
 
-
-
-saveBtn.addEventListener("click", function(){
+for (i = 0; i < saveBtnAll.length; i++) {
+  saveBtnAll[i].addEventListener("click", function(){
 
     var nine = nineText.value;
     var ten = tenText.value;
@@ -64,7 +64,6 @@ saveBtn.addEventListener("click", function(){
     var sixteen = sixteenText.value;
     var seventeen = seventeenText.value;
 
-
 localStorage.setItem("nineTime", nine);
 localStorage.setItem("tenTime", ten);
 localStorage.setItem("elevenTime", eleven);
@@ -74,12 +73,11 @@ localStorage.setItem("fourteenTime", fourteen);
 localStorage.setItem("fifteenTime", fifteen);
 localStorage.setItem("sixteenTime", sixteen);
 localStorage.setItem("seventeenTime", seventeen);
-
-
 })
+}
 
 function clearData() {
-    localStorage.clear()
+    localStorage.clear();
 
     nineText.textContent = "";
     tenText.textContent = "";
@@ -128,5 +126,5 @@ function setBorder(element, border) {
 }
 
 
-$('#currentDay').text(moment().format("dddd, MMMM D"))
+$('#currentDay').text(moment().format("dddd, MMMM D"));
 
