@@ -11,22 +11,11 @@ var saveBtn = document.querySelector(".saveBtn");
 var clearBtn = document.querySelector(".custom-clear");
 var saveBtnAll = document.querySelectorAll(".saveBtn");
 
-
-
-
-
-
-
 var rows = document.getElementsByClassName("custom-row");
 var currentHour = parseInt(moment().format('H'));
 console.log(currentHour);
 
 saveData();
-
-
-
-
-
 
 function saveData() {
 
@@ -75,7 +64,7 @@ localStorage.setItem("sixteenTime", sixteen);
 localStorage.setItem("seventeenTime", seventeen);
 })
 }
-
+11
 function clearData() {
     localStorage.clear();
 
